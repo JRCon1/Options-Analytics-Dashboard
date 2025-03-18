@@ -3,7 +3,7 @@ services:
     name: options-analytics-dashboard
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:server --timeout 120 --workers 4 --bind 0.0.0.0:$PORT --log-level debug --access-logfile - --error-logfile -
+    startCommand: gunicorn app:app
     envVars:
       - key: PYTHON_VERSION
         value: 3.9.0
