@@ -1,7 +1,7 @@
 import os
 import sys
 import logging
-from DashPublic import app
+from dashpub import app
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
