@@ -3,7 +3,17 @@ services:
     name: options-analytics-dashboard
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:server
+    startCommand: gunicorn app:server --timeout 120 --workers 4 --bind 0.0.0.0:$PORT --log-level debug --access-logfile - --error-logfile -
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.0 
+        value: 3.9.0
+      - key: PYTHONUNBUFFERED
+        value: "true"
+      - key: DASH_DEBUG_MODE
+        value: "false"
+      - key: DASH_REQUESTS_PATHNAME_PREFIX
+        value: "/"
+    healthCheckPath: /
+    autoDeploy: true
+    numInstances: 1
+    plan: free 
