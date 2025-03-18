@@ -131,6 +131,7 @@ app = dash.Dash(__name__,
                 'content': 'width=device-width, initial-scale=1.0'}]
 )
 server = app.server
+app.config.suppress_callback_exceptions = True
 
 # Custom CSS for better styling
 app.index_string = '''
